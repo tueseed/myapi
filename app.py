@@ -1,5 +1,6 @@
 from flask import Flask
 from firebase import firebase
+import json
 app = Flask(__name__)
 
 @app.route('/')
@@ -10,7 +11,9 @@ def index():
     # car = {'carnum':'7625','km':{'km1':'99999','km3':'888888'}}
     # result = messenger.put('/car','car8',car)
     result = messenger.get('/car','car8')
-    return "hi "
+    result1 = json.dumps(result)
+    y = json.loads(result1)
+    return y["carnum"]
 
 if __name__ == '__main__':
     app.run()
