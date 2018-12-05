@@ -1,5 +1,5 @@
 from flask import Flask
-import firebase
+from firebase import firebase
 
 app = Flask(__name__)
 
