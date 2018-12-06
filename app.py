@@ -24,7 +24,7 @@ def car_data():
     result = messenger.get('/car',None)
     result1 = json.dumps(result)
     y = json.loads(result1)
-    return y
+    return y["car"]
 
 if __name__ == '__main__':
     app.run()
