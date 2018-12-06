@@ -32,10 +32,7 @@ def add_car():
     # messenger = firebase.FirebaseApplication(url,None)
     # result = messenger.post('/car',contents)
     # return contents
-    content = request.get_json()
-    contents = json.dumps(content)
-    y = json.loads(contents)
-    return y["car_num"]
+    return "TEST"
 
 
 @app.after_request
