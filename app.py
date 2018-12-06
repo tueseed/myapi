@@ -16,7 +16,7 @@ def index():
     y = json.loads(result1)
     return y["carnum"]
 
-@app.route('/car_data', methods=['GET'])
+@app.route('/car_data', methods=['POST'])
 
 def car_data():
     url = "https://carrecorder-4b621.firebaseio.com"
