@@ -1,6 +1,7 @@
 from flask import Flask
 from firebase import firebase
 import json
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -17,7 +18,7 @@ def index():
 
 @app.route('/car_data', methods=['GET'])
 
-def car():
+def car_data():
     url = "https://carrecorder-4b621.firebaseio.com"
     messenger = firebase.FirebaseApplication(url,None)
     result = messenger.get('/car',None)
