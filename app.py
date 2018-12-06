@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from firebase import firebase
 import json
 import requests
@@ -28,11 +28,11 @@ def car_data():
 
 def add_car():
     content = requests.get_json()
-    contents = json.dumps(content)
+    contents = json.loads(content)
     url = "https://carrecorder-4b621.firebaseio.com"
     messenger = firebase.FirebaseApplication(url,None)
     result = messenger.post('/car',contents)
-    return "เพิ่มข้อมูลเรียบร้อย"
+    return result
 
 
 @app.after_request
