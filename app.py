@@ -15,5 +15,15 @@ def index():
     y = json.loads(result1)
     return y["carnum"]
 
+@app.route('/car_data', methods=['GET'])
+
+def car():
+    url = "https://carrecorder-4b621.firebaseio.com"
+    messenger = firebase.FirebaseApplication(url,None)
+    result = messenger.get('/car',None)
+    result1 = json.dumps(result)
+    y = json.loads(result1)
+    return y
+
 if __name__ == '__main__':
     app.run()
