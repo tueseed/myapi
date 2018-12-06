@@ -1,7 +1,7 @@
 from flask import Flask
 from firebase import firebase
 import json
-import requests
+
 app = Flask(__name__)
 
 @app.route('/')
