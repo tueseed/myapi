@@ -22,9 +22,9 @@ def car_data():
     url = "https://carrecorder-4b621.firebaseio.com"
     messenger = firebase.FirebaseApplication(url,None)
     result = messenger.get('/car',None)
-    result1 = json.dumps(result)
+    # result1 = json.dumps(result)
     # y = json.loads(result1)
-    return result1
+    return result
 @app.after_request
 def after_request(response):
   response.headers.add('Access-Control-Allow-Origin', '*')
