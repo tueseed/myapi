@@ -28,9 +28,10 @@ def car_data():
 
 def add_car():
     content = requests.get_json()
+    contents = json.dumps(content)
     url = "https://carrecorder-4b621.firebaseio.com"
     messenger = firebase.FirebaseApplication(url,None)
-    result = messenger.post('/car',content)
+    result = messenger.post('/car',contents)
     return "เพิ่มข้อมูลเรียบร้อย"
 
 
