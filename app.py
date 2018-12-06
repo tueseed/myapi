@@ -24,13 +24,7 @@ def car_data():
     # y = json.loads(result1)
     return result1
 
-@app.route('/add_car', method=['POST'])
-def add_car():
-    content = requests.get_json()
-    url = "https://carrecorder-4b621.firebaseio.com"
-    messenger = firebase.FirebaseApplication(url,None)
-    result = messenger.post('/car',content)
-    return "เพิ่มข้อมูลเรียบร้อย"
+
 
 
 @app.after_request
