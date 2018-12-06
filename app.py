@@ -23,8 +23,8 @@ def car_data():
     messenger = firebase.FirebaseApplication(url,None)
     result = messenger.get('/car',None)
     result1 = json.dumps(result)
-    # y = json.loads(result1)
-    return result1
+    y = json.loads(result1)
+    return y
 @app.after_request
 def after_request(response):
   response.headers.add('Access-Control-Allow-Origin', '*')
