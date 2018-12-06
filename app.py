@@ -1,7 +1,7 @@
 from flask import Flask
 from firebase import firebase
 import json
-
+import requests
 app = Flask(__name__)
 
 @app.route('/')
@@ -25,6 +25,16 @@ def car_data():
     result1 = json.dumps(result)
     # y = json.loads(result1)
     return result1
+
+@app.route('/add_car', method=['POST'])
+
+def add_car():
+    content = requests.get_json()
+    url = "https://carrecorder-4b621.firebaseio.com"
+    messenger = firebase.FirebaseApplication(url,None)
+    result = messenger.post('/car',content)
+    return "เพิ่มข้อมูลเรียบร้อย"
+
 @app.after_request
 def after_request(response):
   response.headers.add('Access-Control-Allow-Origin', '*')
