@@ -1,11 +1,10 @@
 from flask import Flask
 from firebase import firebase
 import json
-
+import requests
 app = Flask(__name__)
 
 @app.route('/')
-
 def index():
     url = "https://carrecorder-4b621.firebaseio.com"
     messenger = firebase.FirebaseApplication(url,None)
@@ -17,7 +16,6 @@ def index():
     return y["carnum"]
 
 @app.route('/car_data', methods=['POST'])
-
 def car_data():
     url = "https://carrecorder-4b621.firebaseio.com"
     messenger = firebase.FirebaseApplication(url,None)
@@ -26,6 +24,13 @@ def car_data():
     # y = json.loads(result1)
     return result1
 
+@app.route('/add_car', method=['POST'])
+def add_car():
+    content = requests.get_json()
+    url = "https://carrecorder-4b621.firebaseio.com"
+    messenger = firebase.FirebaseApplication(url,None)
+    result = messenger.post('/car',content)
+    return "เพิ่มข้อมูลเรียบร้อย"
 
 
 @app.after_request
