@@ -23,8 +23,8 @@ def car_data():
     messenger = firebase.FirebaseApplication(url,None)
     result = messenger.get('/car',None)
     result1 = json.dumps(result)
-    y = json.loads(result1)
-    return y["car"]
+    # y = json.loads(result1)
+    return result1
 
 if __name__ == '__main__':
     app.run()
