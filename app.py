@@ -11,7 +11,7 @@ def index():
     messenger = firebase.FirebaseApplication(url,None)
     # car = {'carnum':'7625','km':{'km1':'99999','km3':'888888'}}
     # result = messenger.put('/car','car8',car)
-    result = messenger.get('/car','car8')
+    result = messenger.get('/car','car16')
     result1 = json.dumps(result)
     y = json.loads(result1)
     return y["carnum"]
