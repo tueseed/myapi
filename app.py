@@ -31,7 +31,7 @@ def add_car():
     url = "https://carrecorder-4b621.firebaseio.com"
     messenger = firebase.FirebaseApplication(url,None)
     result = messenger.post('/car',json2)
-    return result
+    return "INSERT DATA SUCCESS!!"
 
 
 @app.after_request
