@@ -26,15 +26,11 @@ def car_data():
 @app.route('/add_car', methods=['POST'])
 
 def add_car():
-    # content = request.get_json()
-    # contents = json.dumps(content)
-    # url = "https://carrecorder-4b621.firebaseio.com"
-    # messenger = firebase.FirebaseApplication(url,None)
-    # result = messenger.post('/car',contents)
-    # return contents
     json1 = json.dumps(request.form)
-    return json1
-    # return "TEST"
+    url = "https://carrecorder-4b621.firebaseio.com"
+    messenger = firebase.FirebaseApplication(url,None)
+    result = messenger.post('/car',json1)
+    return result
 
 
 @app.after_request
