@@ -1,18 +1,21 @@
 from flask import Flask, request
 from firebase import firebase
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import db
+# Fetch the service account key JSON file contents
+cred = credentials.Certificate('carrecorder-4b621-firebase-adminsdk-zx0lv-99250f07ee.json')
+# Initialize the app with a service account, granting admin privileges
+firebase_admin.initialize_app(cred, {
+    'databaseURL': 'https://carrecorder-4b621.firebaseio.com/'
+})
 import json
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    url = "https://carrecorder-4b621.firebaseio.com"
-    messenger = firebase.FirebaseApplication(url,None)
-    # car = {'carnum':'7625','km':{'km1':'99999','km3':'888888'}}
-    # result = messenger.put('/car','car8',car)
-    result = messenger.get('/car','car16')
-    result1 = json.dumps(result)
-    y = json.loads(result1)
-    return y["carnum"]
+    ref = db.reference('car')
+    return ref.get()
 
 @app.route('/car_data', methods=['POST'])
 def car_data():
