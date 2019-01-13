@@ -15,7 +15,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     ref = db.reference('car')
-    return "123456789"
+    return json.dumps(ref.get())
 
 @app.route('/car_data', methods=['POST'])
 def car_data():
