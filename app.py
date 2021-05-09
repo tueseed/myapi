@@ -7,7 +7,7 @@ app = Flask(__name__)
 ###########################หน้าแรก################################
 @app.route('/')
 def index():
-    return "Hi Welcome to python page"
+    return "Hi Welcome to python page.."
 #################################หน้าราคาหุ้น###############################
 @app.route('/getquote', methods=['GET'])
 def getquote():
